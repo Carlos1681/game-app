@@ -1,12 +1,13 @@
 package com.games.gamelist.dto;
 
 import com.games.gamelist.model.Game;
+import com.games.gamelist.projection.GameMinProjection;
 
 public class GameMinDto {
 	
 	private Long id;
 	private String title;
-	private String year;
+	private Integer year;
 	private String imgUrl;
 	private String shortDescription;
 	
@@ -22,6 +23,14 @@ public class GameMinDto {
 		imgUrl = game.getImgUrl();
 		shortDescription = game.getShortDescription();
 	}
+	
+	public GameMinDto(GameMinProjection gameMinProjection) {
+		id = gameMinProjection.getId();
+		title = gameMinProjection.getTitle();
+		year = gameMinProjection.getYear();
+		imgUrl = gameMinProjection.getImgUrl();
+		shortDescription = gameMinProjection.getShortDescription();
+	}
 
 	public Long getId() {
 		return id;
@@ -31,7 +40,7 @@ public class GameMinDto {
 		return title;
 	}
 
-	public String getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
